@@ -1,10 +1,10 @@
 package com.kmv.geological.controller;
 
 import com.kmv.geological.aspect.CheckBindingResult;
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalFilterRequestDTO;
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalResponseDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalFilterRequestDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalResponseDTO;
 import com.kmv.geological.domain.dto.page.SimplePageResponseDTO;
-import com.kmv.geological.service.api.GeologicalService;
+import com.kmv.geological.service.geological.GeologicalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

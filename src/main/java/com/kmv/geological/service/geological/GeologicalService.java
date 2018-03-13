@@ -1,7 +1,7 @@
-package com.kmv.geological.service.api;
+package com.kmv.geological.service.geological;
 
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalFilterRequestDTO;
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalResponseDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalFilterRequestDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalResponseDTO;
 import com.kmv.geological.domain.dto.page.SimplePageResponseDTO;
 
 /**

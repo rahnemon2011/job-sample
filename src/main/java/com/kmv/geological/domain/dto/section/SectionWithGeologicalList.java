@@ -1,6 +1,6 @@
 package com.kmv.geological.domain.dto.section;
 
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalResponseDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalResponseDTO;
 
 import java.io.Serializable;
 import java.util.List;

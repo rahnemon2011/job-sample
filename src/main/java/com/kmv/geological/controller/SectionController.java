@@ -5,7 +5,7 @@ import com.kmv.geological.domain.dto.page.SimplePageRequestDTO;
 import com.kmv.geological.domain.dto.page.SimplePageResponseDTO;
 import com.kmv.geological.domain.dto.section.SectionWithGeologicalList;
 import com.kmv.geological.domain.dto.section.SimpleSectionDTO;
-import com.kmv.geological.service.api.SectionService;
+import com.kmv.geological.service.section.SectionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

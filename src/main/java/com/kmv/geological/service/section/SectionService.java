@@ -1,4 +1,4 @@
-package com.kmv.geological.service.api;
+package com.kmv.geological.service.section;
 
 import com.kmv.geological.domain.dto.page.SimplePageRequestDTO;
 import com.kmv.geological.domain.dto.page.SimplePageResponseDTO;

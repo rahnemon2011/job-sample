@@ -1,7 +1,7 @@
 package com.kmv.geological.repository.custom;
 
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalFilterRequestDTO;
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalResponseDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalFilterRequestDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalResponseDTO;
 import com.kmv.geological.domain.dto.page.SimplePageResponseDTO;
 import com.kmv.geological.domain.entity.GeologicalEntity;
 import com.kmv.geological.repository.AbstractRepository;

@@ -1,4 +1,4 @@
-package com.kmv.geological.domain.dto.geologicalclass;
+package com.kmv.geological.domain.dto.geological;
 
 import com.kmv.geological.domain.dto.page.SimplePageRequestDTO;
 

@@ -2,7 +2,7 @@ package com.kmv.geological.controller;
 
 import com.kmv.geological.domain.dto.job.JobResponseDTO;
 import com.kmv.geological.domain.entity.JobEntity;
-import com.kmv.geological.service.api.JobService;
+import com.kmv.geological.service.job.JobService;
 
 import java.io.IOException;
 
@@ -35,18 +35,14 @@ public class JobController {
 
         LOGGER.info("file with the name {} and jobId {} is created.", file.getOriginalFilename(), jobEntity.getId());
 
-        jobService.processExcelFile(jobEntity, file.getInputStream());
+        jobService.processJob(jobEntity, file.getInputStream());
+
         return jobEntity.getId();
     }
 
-    // TODO: 3/12/18 Should be deleted
     @PostMapping("/job-result")
     public JobResponseDTO jobResult(@RequestParam("job-id") Long id) {
         return jobService.findJob(id);
     }
 
-//    @GetMapping(value = "/{id}")
-//    public JobResponseDTO findByName(@PathVariable Long id) {
-//        return jobService.findJob(id);
-//    }
 }

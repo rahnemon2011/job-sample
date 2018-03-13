@@ -1,4 +1,4 @@
-package com.kmv.geological.service.api;
+package com.kmv.geological.service.job;
 
 import com.kmv.geological.domain.dto.job.JobResponseDTO;
 import com.kmv.geological.domain.entity.JobEntity;
@@ -30,5 +30,5 @@ public interface JobService {
     JobResponseDTO findJob(Long id);
 
     @Async
-    void processExcelFile(JobEntity jobEntity, InputStream inputStream);
+    void processJob(JobEntity jobEntity, InputStream inputStream);
 }

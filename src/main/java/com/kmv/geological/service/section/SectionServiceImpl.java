@@ -1,6 +1,6 @@
-package com.kmv.geological.service.impl;
+package com.kmv.geological.service.section;
 
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalResponseDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalResponseDTO;
 import com.kmv.geological.domain.dto.page.SimplePageRequestDTO;
 import com.kmv.geological.domain.dto.page.SimplePageResponseDTO;
 import com.kmv.geological.domain.dto.section.SectionByJobRequestDTO;
@@ -12,7 +12,7 @@ import com.kmv.geological.exception.BusinessException;
 import com.kmv.geological.exception.general.DuplicateResourceException;
 import com.kmv.geological.exception.general.NoSuchResourceException;
 import com.kmv.geological.repository.api.SectionRepository;
-import com.kmv.geological.service.api.SectionService;
+
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
