@@ -1,7 +1,7 @@
 package com.kmv.geological.service;
 
 import com.kmv.geological.BaseTest;
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalResponseDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalResponseDTO;
 import com.kmv.geological.domain.dto.page.SimplePageRequestDTO;
 import com.kmv.geological.domain.dto.page.SimplePageResponseDTO;
 import com.kmv.geological.domain.dto.section.SectionByJobRequestDTO;
@@ -16,7 +16,7 @@ import com.kmv.geological.exception.general.DuplicateResourceException;
 import com.kmv.geological.exception.general.NoSuchResourceException;
 import com.kmv.geological.repository.api.JobRepository;
 import com.kmv.geological.repository.api.SectionRepository;
-import com.kmv.geological.service.api.SectionService;
+import com.kmv.geological.service.section.SectionService;
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ public class SectionServiceTest extends BaseTest {
 
     @Before
     public void init() {
-        JobEntity jobEntity = new JobEntity("FileProcessJob", JobType.FILE_READING, JobStatus.STARTED);
+        JobEntity jobEntity = new JobEntity("FileProcessJob", JobType.EXCEL_FILE_READING, JobStatus.STARTED);
         JobEntity save = jobRepository.save(jobEntity);
         jobId = save.getId();
 
@@ -136,9 +136,9 @@ public class SectionServiceTest extends BaseTest {
         String updatedSctionName = "Section Updated";
         SectionWithGeologicalList sectionDTO = new SectionWithGeologicalList(updatedSctionName);
         sectionDTO.setId(Long.MIN_VALUE);
-        SectionWithGeologicalList expectedSecion = null;
+        SectionWithGeologicalList expectedSection = null;
 
-        expectedSecion = sectionService.saveOrUpdate(sectionDTO);
+        expectedSection = sectionService.saveOrUpdate(sectionDTO);
     }
 
     @Test

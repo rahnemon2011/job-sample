@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class JobControllerTest extends BaseTest {
 
     private static final String JOB_RESOURCE_URL = "/jobs";
-    private static final String FILE_NAME = "sections.xls";
+    private static final String FILE_NAME = "sections.xlsx";
 
     @Autowired
     private JobRepository jobRepository;
@@ -37,7 +37,7 @@ public class JobControllerTest extends BaseTest {
 
     @Before
     public void init() {
-        JobEntity jobEntity = new JobEntity("FileProcessJob", JobType.FILE_READING, JobStatus.STARTED);
+        JobEntity jobEntity = new JobEntity("FileProcessJob", JobType.EXCEL_FILE_READING, JobStatus.STARTED);
         JobEntity save = jobRepository.save(jobEntity);
         jobId = save.getId();
     }
@@ -45,7 +45,7 @@ public class JobControllerTest extends BaseTest {
     @Test
     public void registerJobAndProcessFile_simpleFile_ok() throws Exception {
 
-        String path = this.getClass().getClassLoader().getResource("files/sections.xlsx").getFile();
+        String path = this.getClass().getClassLoader().getResource("files/"  + FILE_NAME).getFile();
         try (InputStream inputStream = new FileInputStream(path)) {
             MockMultipartFile file = new MockMultipartFile("sections", FILE_NAME,
                     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", inputStream);
@@ -53,9 +53,9 @@ public class JobControllerTest extends BaseTest {
             mockMvc.perform(fileUpload(JOB_RESOURCE_URL + "/register-job").file(file))
                     .andExpect(MockMvcResultMatchers.status().isOk());
         }
-        //It will avoid duplicate key exception! because, processExcelFile is running asynchronisely, multiple tests
+        //It will avoid duplicate key exception! because, processJob is running asynchronisely, multiple tests
         //will try to insert the same data of the same file at the same time! So, sleeping the thread does the trick!
-//        TimeUnit.SECONDS.sleep(5);
+        TimeUnit.SECONDS.sleep(5);
     }
 
     @Test

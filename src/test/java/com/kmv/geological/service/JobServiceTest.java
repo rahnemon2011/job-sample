@@ -2,7 +2,7 @@ package com.kmv.geological.service;
 
 import com.kmv.geological.domain.entity.JobEntity;
 import com.kmv.geological.domain.enums.JobStatus;
-import com.kmv.geological.service.api.JobService;
+import com.kmv.geological.service.job.JobService;
 import com.kmv.geological.BaseTest;
 
 import java.io.FileInputStream;
@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class JobServiceTest extends BaseTest {
 
-    private static final String FILE_NAME = "sections.xls";
+    private static final String FILE_NAME = "sections.xlsx";
 
     @Autowired
     private JobService jobService;
@@ -37,15 +37,14 @@ public class JobServiceTest extends BaseTest {
     public void registerJobThenProcessExcelFile_simpleFile_succeed()
             throws FileNotFoundException, InterruptedException {
 
-        String path = this.getClass().getClassLoader().getResource("files/sections.xlsx").getFile();
-
+        String path = this.getClass().getClassLoader().getResource("files/" + FILE_NAME).getFile();
         InputStream inputStream = new FileInputStream(path);
 
         JobEntity jobEntity = jobService.createJob(FILE_NAME);
-        jobService.processExcelFile(jobEntity, inputStream);
+        jobService.processJob(jobEntity, inputStream);
 
         Assert.assertNotNull(jobEntity);
-        //It will avoid duplicate key exception! because, processExcelFile is running asynchronisely, multiple tests
+        //It will avoid duplicate key exception! because, processJob is running asynchronisely, multiple tests
         //will try to insert the same data of the same file at the same time! So, sleeping the thread does the trick!
         //Also, we can ensure that the job status is COMPLETED.
         TimeUnit.SECONDS.sleep(3);

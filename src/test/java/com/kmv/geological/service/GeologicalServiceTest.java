@@ -1,8 +1,8 @@
 package com.kmv.geological.service;
 
 import com.kmv.geological.BaseTest;
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalFilterRequestDTO;
-import com.kmv.geological.domain.dto.geologicalclass.GeologicalResponseDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalFilterRequestDTO;
+import com.kmv.geological.domain.dto.geological.GeologicalResponseDTO;
 import com.kmv.geological.domain.dto.page.SimplePageResponseDTO;
 import com.kmv.geological.domain.entity.GeologicalEntity;
 import com.kmv.geological.domain.entity.JobEntity;
@@ -11,11 +11,10 @@ import com.kmv.geological.domain.enums.JobStatus;
 import com.kmv.geological.domain.enums.JobType;
 import com.kmv.geological.repository.api.JobRepository;
 import com.kmv.geological.repository.api.SectionRepository;
-import com.kmv.geological.service.api.GeologicalService;
+import com.kmv.geological.service.geological.GeologicalService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
@@ -37,7 +36,7 @@ public class GeologicalServiceTest extends BaseTest {
 
     @Before
     public void init() {
-        JobEntity jobEntity = new JobEntity("FileProcessJob", JobType.FILE_READING, JobStatus.STARTED);
+        JobEntity jobEntity = new JobEntity("FileProcessJob", JobType.EXCEL_FILE_READING, JobStatus.STARTED);
         jobRepository.save(jobEntity);
 
         SectionEntity sectionEntity = new SectionEntity("Section 1");

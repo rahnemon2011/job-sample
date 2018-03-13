@@ -2,19 +2,13 @@ package com.kmv.geological.controller;
 
 import com.kmv.geological.config.JacksonMapperConfig;
 import com.kmv.geological.domain.dto.section.SectionWithGeologicalList;
-import com.kmv.geological.domain.entity.GeologicalEntity;
-import com.kmv.geological.domain.entity.JobEntity;
 import com.kmv.geological.domain.entity.SectionEntity;
-import com.kmv.geological.domain.enums.JobStatus;
-import com.kmv.geological.domain.enums.JobType;
 import com.kmv.geological.BaseTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
-import com.kmv.geological.repository.api.JobRepository;
 import com.kmv.geological.repository.api.SectionRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -83,7 +77,6 @@ public class SectionControllerTest extends BaseTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isConflict());
-
     }
 
     @Test
